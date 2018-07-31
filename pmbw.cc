@@ -55,10 +55,10 @@
 // --- Global Settings and Variables
 
 // minimum duration of test, if smaller re-run
-double g_min_time = 1.0;
+double g_min_time = 0.18;
 
 // target average duration of test
-double g_avg_time = 1.5;
+double g_avg_time = 0.3;
 
 // filter of functions to run, set by command line
 std::vector<const char*> gopt_funcfilter;
@@ -399,29 +399,31 @@ const uint64_t areasize_list[] = {
     512 * 1024,
     768 * 1024,
     1024 * 1024,                // 1 MiB
-    (1024 + 256) * 1024,	// 1.25 MiB
+//    (1024 + 256) * 1024,	// 1.25 MiB
     (1024 + 512) * 1024,	// 1.5 MiB
-    (1024 + 768) * 1024,	// 1.75 MiB
+//    (1024 + 768) * 1024,	// 1.75 MiB
     2048 * 1024,                // 2 MiB = common L2 cache size
-    (2048 + 256) * 1024,	// 2.25
+//    (2048 + 256) * 1024,	// 2.25
     (2048 + 512) * 1024,	// 2.5
-    (2048 + 768) * 1024,	// 2.75
+//    (2048 + 768) * 1024,	// 2.75
     3 * 1024 * 1024,            // 3 MiB = common L2 cache size
     4 * 1024 * 1024,            // 4 MiB
-    5 * 1024 * 1024,            // 5 MiB
+//    5 * 1024 * 1024,            // 5 MiB
     6 * 1024 * 1024,            // 6 MiB = common L2 cache size
-    7 * 1024 * 1024,            // 7 MiB
+//    7 * 1024 * 1024,            // 7 MiB
     8 * 1024 * 1024,            // 8 MiB = common L2 cache size
-    9 * 1024 * 1024,
+//    9 * 1024 * 1024,
     10 * 1024 * 1024,
-    12 * 1024 * 1024,
-    14 * 1024 * 1024,
+//    12 * 1024 * 1024,
+//    14 * 1024 * 1024,
     16 * 1024 * 1024,
-    20 * 1024 * 1024,
+//    20 * 1024 * 1024,
     24 * 1024 * 1024,
-    28 * 1024 * 1024,
+//    28 * 1024 * 1024,
     32 * 1024 * 1024,
+//    40 * 1024 * 1024,
     48 * 1024 * 1024,
+//    56 * 1024 * 1024,
     64 * 1024 * 1024,
     96 * 1024 * 1024,
     128 * 1024 * 1024,
