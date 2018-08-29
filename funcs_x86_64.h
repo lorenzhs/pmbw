@@ -211,7 +211,7 @@ void ScanWrite64IndexSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "rcx", "cc", "memory");
 }
 
-REGISTER(ScanWrite64IndexSimpleLoop, 8, 8, 1);
+// REGISTER(ScanWrite64IndexSimpleLoop, 8, 8, 1);
 
 // 64-bit writer in an indexed unrolled loop (Assembler version)
 void ScanWrite64IndexUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -271,7 +271,7 @@ void ScanRead64IndexSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "rcx", "cc", "memory");
 }
 
-REGISTER(ScanRead64IndexSimpleLoop, 8, 8, 1);
+// REGISTER(ScanRead64IndexSimpleLoop, 8, 8, 1);
 
 // 64-bit reader in an indexed unrolled loop (Assembler version)
 void ScanRead64IndexUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -414,7 +414,7 @@ void ScanWrite128PtrSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "xmm1", "cc", "memory");
 }
 
-REGISTER_CPUFEAT(ScanWrite128PtrSimpleLoop, "sse", 16, 16, 1);
+// REGISTER_CPUFEAT(ScanWrite128PtrSimpleLoop, "sse", 16, 16, 1);
 
 // 128-bit writer in an unrolled loop (Assembler version)
 void ScanWrite128PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -477,7 +477,7 @@ void ScanRead128PtrSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-REGISTER_CPUFEAT(ScanRead128PtrSimpleLoop, "sse", 16, 16, 1);
+// REGISTER_CPUFEAT(ScanRead128PtrSimpleLoop, "sse", 16, 16, 1);
 
 // 128-bit reader in an unrolled loop (Assembler version)
 void ScanRead128PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -514,7 +514,7 @@ void ScanRead128PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-REGISTER_CPUFEAT(ScanRead128PtrUnrollLoop, "sse", 16, 16, 16);
+// REGISTER_CPUFEAT(ScanRead128PtrUnrollLoop, "sse", 16, 16, 16);
 
 // ****************************************************************************
 // ----------------------------------------------------------------------------
@@ -546,7 +546,7 @@ void ScanWrite256PtrSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-REGISTER_CPUFEAT(ScanWrite256PtrSimpleLoop, "avx", 32, 32, 1);
+// REGISTER_CPUFEAT(ScanWrite256PtrSimpleLoop, "avx", 32, 32, 1);
 
 // 256-bit writer in an unrolled loop (Assembler version)
 void ScanWrite256PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -609,7 +609,7 @@ void ScanRead256PtrSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-REGISTER_CPUFEAT(ScanRead256PtrSimpleLoop, "avx", 32, 32, 1);
+// REGISTER_CPUFEAT(ScanRead256PtrSimpleLoop, "avx", 32, 32, 1);
 
 // 256-bit reader in an unrolled loop (Assembler version)
 void ScanRead256PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -646,7 +646,7 @@ void ScanRead256PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-REGISTER_CPUFEAT(ScanRead256PtrUnrollLoop, "avx", 32, 32, 16);
+// REGISTER_CPUFEAT(ScanRead256PtrUnrollLoop, "avx", 32, 32, 16);
 
 // ****************************************************************************
 // ----------------------------------------------------------------------------
@@ -675,7 +675,7 @@ void ScanWrite32PtrSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "eax", "rcx", "cc", "memory");
 }
 
-REGISTER(ScanWrite32PtrSimpleLoop, 4, 4, 1);
+// REGISTER(ScanWrite32PtrSimpleLoop, 4, 4, 1);
 
 // 32-bit writer in an unrolled loop (Assembler version)
 void ScanWrite32PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -735,7 +735,7 @@ void ScanRead32PtrSimpleLoop(char* memarea, size_t size, size_t repeats)
         : "eax", "rcx", "cc", "memory");
 }
 
-REGISTER(ScanRead32PtrSimpleLoop, 4, 4, 1);
+// REGISTER(ScanRead32PtrSimpleLoop, 4, 4, 1);
 
 // 32-bit reader in an unrolled loop (Assembler version)
 void ScanRead32PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
@@ -772,7 +772,7 @@ void ScanRead32PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
         : "eax", "rcx", "cc", "memory");
 }
 
-REGISTER(ScanRead32PtrUnrollLoop, 4, 4, 16);
+// REGISTER(ScanRead32PtrUnrollLoop, 4, 4, 16);
 
 // ****************************************************************************
 // ----------------------------------------------------------------------------
@@ -855,6 +855,6 @@ void PermRead64UnrollLoop(char* memarea, size_t, size_t repeats)
         : "rax", "cc", "memory");
 }
 
-REGISTER_PERM(PermRead64UnrollLoop, /* bytes */ 8, /* unroll */ 16);
+// REGISTER_PERM(PermRead64UnrollLoop, /* bytes */ 8, /* unroll */ 16);
 
 // -----------------------------------------------------------------------------
