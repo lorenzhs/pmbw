@@ -833,6 +833,28 @@ void* thread_filler(void* cookie)
 
     return NULL;
 }
+
+void* thread_reader(void* cookie)
+{
+    // this weirdness is because (void*) cannot be cast to int and back.
+    int node_num = *((int*)cookie);
+    delete (int*)cookie;
+
+    numa_run_on_node(node_num);
+
+    double ts1 = timestamp();
+    size_t* area = (size_t*)g_memarea[node_num];
+    size_t size = g_memsize_node / sizeof(size_t);
+    std::vector<size_t> dummy(1);
+    for (size_t i = 0; i < size; ++i) {
+        dummy[0] = *(area + i);
+    }
+    double ts2 = timestamp();
+    ERRX("node " << node_num << ": "
+         <<std::setprecision(2) << (ts2 - ts1) << "s, ");
+
+    return NULL;
+}
 #endif
 
 static inline uint64_t round_up_power2(uint64_t v)
@@ -1077,6 +1099,22 @@ int main(int argc, char* argv[])
         pthread_t thr[g_numa_nodes];
         for (int nn = 0; nn < g_numa_nodes; ++nn)
             pthread_create(&thr[nn], NULL, thread_filler, new int(nn));
+
+        for (int nn = 0; nn < g_numa_nodes; ++nn)
+            pthread_join(thr[nn], NULL);
+
+        double ts2 = timestamp();
+        ERR("done in " << std::setprecision(2) << (ts2 - ts1) << "s.");
+    }
+
+    // access memory once more
+    ERR("Reading " << g_memsize_node / 1024 / 1024 << " MiB on each NUMA node.");
+    {
+        double ts1 = timestamp();
+
+        pthread_t thr[g_numa_nodes];
+        for (int nn = 0; nn < g_numa_nodes; ++nn)
+            pthread_create(&thr[nn], NULL, thread_reader, new int(nn));
 
         for (int nn = 0; nn < g_numa_nodes; ++nn)
             pthread_join(thr[nn], NULL);
