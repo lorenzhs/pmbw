@@ -514,7 +514,7 @@ void ScanRead128PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-// REGISTER_CPUFEAT(ScanRead128PtrUnrollLoop, "sse", 16, 16, 16);
+REGISTER_CPUFEAT(ScanRead128PtrUnrollLoop, "sse", 16, 16, 16);
 
 // ****************************************************************************
 // ----------------------------------------------------------------------------
@@ -646,7 +646,7 @@ void ScanRead256PtrUnrollLoop(char* memarea, size_t size, size_t repeats)
         : "rax", "xmm0", "cc", "memory");
 }
 
-// REGISTER_CPUFEAT(ScanRead256PtrUnrollLoop, "avx", 32, 32, 16);
+REGISTER_CPUFEAT(ScanRead256PtrUnrollLoop, "avx", 32, 32, 16);
 
 // ****************************************************************************
 // ----------------------------------------------------------------------------
